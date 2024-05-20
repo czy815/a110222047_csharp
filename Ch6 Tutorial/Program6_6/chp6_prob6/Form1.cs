@@ -11,7 +11,7 @@ namespace chp6_prob6
 {
     public partial class Form1 : Form
     {
-        const decimal stayPerDay = 3500.00m;
+        const decimal stayPerDay = 5500.00m;
         public Form1()
         {
             InitializeComponent();
@@ -23,14 +23,14 @@ namespace chp6_prob6
         }
         private decimal CalcMiscCharges(decimal foodBill, decimal spaBill, decimal carRental, decimal medicalBill)
         {
-            return foodBill + spaBill + carRental + medicalBill;
+            return (foodBill + spaBill + carRental + medicalBill);
         }
         private decimal CalcTotalCharges(decimal stayBill, decimal miscellaneous)
         {
-            return stayBill + miscellaneous;
+            return (stayBill + miscellaneous);
         }
 
-        private bool InputIsValid(ref int days, ref decimal fb, ref decimal sb, ref decimal cb, ref decimal mb)
+        private bool IsInputValid(ref int days, ref decimal fb, ref decimal sb, ref decimal cb, ref decimal mb)
         {
             if (int.TryParse(textBox1.Text, out days) &&
                 decimal.TryParse(textBox2.Text, out fb) &&
@@ -56,11 +56,11 @@ namespace chp6_prob6
             decimal stayCharge, miscCharge;
             decimal totalCharge;
 
-            if(InputIsValid(ref days,ref fb,ref sb,ref cb,ref mb))
+            if(IsInputValid(ref days,ref fb,ref sb,ref cb,ref mb))
             {
-                stayCharge = CalcStayCharges(days);
-                miscCharge = CalcMiscCharges(fb, sb, cb, mb);
-                totalCharge = CalcTotalCharges(stayCharge, miscCharge);
+                stayCharge = CalcStayCharges(days); //計算住宿費
+                miscCharge = CalcMiscCharges(fb, sb, cb, mb); //計算其他費用
+                totalCharge = CalcTotalCharges(stayCharge, miscCharge); //計算總花費
                 MessageBox.Show($"Total Charges:{totalCharge}");
             }
 

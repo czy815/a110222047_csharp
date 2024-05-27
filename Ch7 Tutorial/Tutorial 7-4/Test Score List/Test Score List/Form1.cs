@@ -13,6 +13,7 @@ namespace Test_Score_List
 {
     public partial class Form1 : Form
     {
+        private List <int> scoresList = new List<int>():
         public Form1()
         {
             InitializeComponent();
@@ -36,11 +37,11 @@ namespace Test_Score_List
             average = Average(scoresList);
             averageLabel.Text = average.ToString("n1");
 
-            numAboveAverage = AboveAverage(scoresList);
+            numAboveAverage = AboveAverage(scoresList,average);
             aboveAverageLabel.Text = numAboveAverage.ToString();
         }
 
-        private int AboveAverage(List<int> scores)
+        private int AboveAverage(List<int> scores,double average)
         {
             //double average = Average(scores);
             int numAbove = 0;
@@ -92,6 +93,15 @@ namespace Test_Score_List
         {
             // Close the form.
             this.Close();
+        }
+
+        private void delButton_Click(object sender, EventArgs e)
+        {
+            int pos = int.Parse(indexTextBox.Text);
+            if(pos <=0 && pos <scoresList.Count)
+            {
+
+            }
         }
     }
 }

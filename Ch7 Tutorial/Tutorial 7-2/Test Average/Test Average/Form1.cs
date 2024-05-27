@@ -13,7 +13,7 @@ namespace Test_Average
 {
     public partial class Form1 : Form
     {
-        private const int SIZE = 5;
+        private const int SIZE = 40;
         public Form1()
         {
             InitializeComponent();
@@ -24,7 +24,10 @@ namespace Test_Average
             int[] scores = new int[SIZE];
             int highestScore = 0;
             int lowestScore = 0;
-            GetScoresFromFile(scores);
+            double average = 0.0;
+            double median = 0.0;
+            
+            GetScoresFromFile(scores); //讀取檔案內容到陣列中
 
             //for(int i =0; i<scores.Length; i++)
             //{
@@ -37,8 +40,15 @@ namespace Test_Average
 
             highestScore = Highest(scores);
             highScoreLabel.Text = highestScore.ToString();
+
             lowestScore =Lowest(scores);
             lowScoreLabel.Text =lowestScore.ToString();
+
+            average = Average(scores);
+            averageScoreLabel.Text = average.ToString();
+
+            median = Median(scores);
+            medianScoreLabel.Text = median.ToString();
         }
 
         private int Highest(int[] scores)
@@ -65,6 +75,32 @@ namespace Test_Average
                 }
             }
             return lowest;
+        }
+
+        private double Average(int[] scores)
+        {
+            int sum = 0;
+            for(int i =0; i<scores.Length; i++)
+            {
+                sum = sum + scores[i];
+            }
+            //MessageBox.Show("SUM=" + sum);
+            return(double) sum / scores.Length; //casting
+        }
+
+        private double Median(int[] scores)
+        {
+            int length = scores.Length;
+            Array.Sort(scores);
+
+            if (length % 2 == 0)
+            {               
+                return (scores[length / 2 - 1] + scores[length / 2]) / 2.0;
+            }
+            else
+            {
+                return scores[length / 2];
+            }
         }
 
 

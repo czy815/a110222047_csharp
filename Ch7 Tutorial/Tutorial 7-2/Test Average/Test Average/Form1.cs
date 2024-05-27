@@ -90,17 +90,11 @@ namespace Test_Average
 
         private double Median(int[] scores)
         {
-            int length = scores.Length;
             Array.Sort(scores);
 
-            if (length % 2 == 0)
-            {               
-                return (scores[length / 2 - 1] + scores[length / 2]) / 2.0;
-            }
-            else
-            {
-                return scores[length / 2];
-            }
+            for (int i = 0; i < scores.Length; i++)
+                sortedScoresListBox.Items.Add("[" + i + "]:" + scores[i]);
+            return scores[scores.Length / 2];
         }
 
 

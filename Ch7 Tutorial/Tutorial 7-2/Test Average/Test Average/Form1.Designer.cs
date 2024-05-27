@@ -41,12 +41,14 @@
             this.openFile = new System.Windows.Forms.OpenFileDialog();
             this.label1 = new System.Windows.Forms.Label();
             this.medianScoreLabel = new System.Windows.Forms.Label();
+            this.sortedScoresListBox = new System.Windows.Forms.ListBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // averageScoreDescriptionLabel
             // 
             this.averageScoreDescriptionLabel.AutoSize = true;
-            this.averageScoreDescriptionLabel.Location = new System.Drawing.Point(190, 138);
+            this.averageScoreDescriptionLabel.Location = new System.Drawing.Point(207, 195);
             this.averageScoreDescriptionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.averageScoreDescriptionLabel.Name = "averageScoreDescriptionLabel";
             this.averageScoreDescriptionLabel.Size = new System.Drawing.Size(110, 18);
@@ -56,7 +58,7 @@
             // lowScoreDescriptionLabel
             // 
             this.lowScoreDescriptionLabel.AutoSize = true;
-            this.lowScoreDescriptionLabel.Location = new System.Drawing.Point(199, 88);
+            this.lowScoreDescriptionLabel.Location = new System.Drawing.Point(216, 145);
             this.lowScoreDescriptionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lowScoreDescriptionLabel.Name = "lowScoreDescriptionLabel";
             this.lowScoreDescriptionLabel.Size = new System.Drawing.Size(102, 18);
@@ -66,7 +68,7 @@
             // highScoreDescriptionLabel
             // 
             this.highScoreDescriptionLabel.AutoSize = true;
-            this.highScoreDescriptionLabel.Location = new System.Drawing.Point(196, 39);
+            this.highScoreDescriptionLabel.Location = new System.Drawing.Point(213, 96);
             this.highScoreDescriptionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.highScoreDescriptionLabel.Name = "highScoreDescriptionLabel";
             this.highScoreDescriptionLabel.Size = new System.Drawing.Size(105, 18);
@@ -77,16 +79,16 @@
             // 
             this.testScoresListBox.FormattingEnabled = true;
             this.testScoresListBox.ItemHeight = 18;
-            this.testScoresListBox.Location = new System.Drawing.Point(4, 59);
+            this.testScoresListBox.Location = new System.Drawing.Point(13, 53);
             this.testScoresListBox.Margin = new System.Windows.Forms.Padding(4);
             this.testScoresListBox.Name = "testScoresListBox";
-            this.testScoresListBox.Size = new System.Drawing.Size(178, 130);
+            this.testScoresListBox.Size = new System.Drawing.Size(178, 274);
             this.testScoresListBox.TabIndex = 6;
             // 
             // testScoresDescriptionLabel
             // 
             this.testScoresDescriptionLabel.AutoSize = true;
-            this.testScoresDescriptionLabel.Location = new System.Drawing.Point(4, 37);
+            this.testScoresDescriptionLabel.Location = new System.Drawing.Point(13, 31);
             this.testScoresDescriptionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.testScoresDescriptionLabel.Name = "testScoresDescriptionLabel";
             this.testScoresDescriptionLabel.Size = new System.Drawing.Size(89, 18);
@@ -96,7 +98,7 @@
             // highScoreLabel
             // 
             this.highScoreLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.highScoreLabel.Location = new System.Drawing.Point(313, 31);
+            this.highScoreLabel.Location = new System.Drawing.Point(330, 88);
             this.highScoreLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.highScoreLabel.Name = "highScoreLabel";
             this.highScoreLabel.Size = new System.Drawing.Size(149, 31);
@@ -106,7 +108,7 @@
             // lowScoreLabel
             // 
             this.lowScoreLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lowScoreLabel.Location = new System.Drawing.Point(313, 81);
+            this.lowScoreLabel.Location = new System.Drawing.Point(330, 138);
             this.lowScoreLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lowScoreLabel.Name = "lowScoreLabel";
             this.lowScoreLabel.Size = new System.Drawing.Size(149, 31);
@@ -116,7 +118,7 @@
             // averageScoreLabel
             // 
             this.averageScoreLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.averageScoreLabel.Location = new System.Drawing.Point(313, 131);
+            this.averageScoreLabel.Location = new System.Drawing.Point(330, 188);
             this.averageScoreLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.averageScoreLabel.Name = "averageScoreLabel";
             this.averageScoreLabel.Size = new System.Drawing.Size(149, 31);
@@ -125,7 +127,7 @@
             // 
             // getScoresButton
             // 
-            this.getScoresButton.Location = new System.Drawing.Point(149, 247);
+            this.getScoresButton.Location = new System.Drawing.Point(183, 373);
             this.getScoresButton.Margin = new System.Windows.Forms.Padding(4);
             this.getScoresButton.Name = "getScoresButton";
             this.getScoresButton.Size = new System.Drawing.Size(112, 32);
@@ -136,7 +138,7 @@
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(270, 247);
+            this.exitButton.Location = new System.Drawing.Point(304, 373);
             this.exitButton.Margin = new System.Windows.Forms.Padding(4);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(112, 32);
@@ -152,7 +154,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(191, 182);
+            this.label1.Location = new System.Drawing.Point(208, 239);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(104, 18);
@@ -162,18 +164,40 @@
             // medianScoreLabel
             // 
             this.medianScoreLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.medianScoreLabel.Location = new System.Drawing.Point(313, 176);
+            this.medianScoreLabel.Location = new System.Drawing.Point(330, 233);
             this.medianScoreLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.medianScoreLabel.Name = "medianScoreLabel";
             this.medianScoreLabel.Size = new System.Drawing.Size(149, 31);
             this.medianScoreLabel.TabIndex = 16;
             this.medianScoreLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // sortedScoresListBox
+            // 
+            this.sortedScoresListBox.FormattingEnabled = true;
+            this.sortedScoresListBox.ItemHeight = 18;
+            this.sortedScoresListBox.Location = new System.Drawing.Point(498, 53);
+            this.sortedScoresListBox.Margin = new System.Windows.Forms.Padding(4);
+            this.sortedScoresListBox.Name = "sortedScoresListBox";
+            this.sortedScoresListBox.Size = new System.Drawing.Size(178, 274);
+            this.sortedScoresListBox.TabIndex = 18;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(495, 31);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(103, 18);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Sorted Scores";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(528, 311);
+            this.ClientSize = new System.Drawing.Size(726, 434);
+            this.Controls.Add(this.sortedScoresListBox);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.medianScoreLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.exitButton);
@@ -209,6 +233,8 @@
         private System.Windows.Forms.OpenFileDialog openFile;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label medianScoreLabel;
+        private System.Windows.Forms.ListBox sortedScoresListBox;
+        private System.Windows.Forms.Label label2;
     }
 }
 

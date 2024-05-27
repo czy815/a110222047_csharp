@@ -100,7 +100,12 @@ namespace Test_Score_List
             int pos = int.Parse(indexTextBox.Text);
             if(pos <=0 && pos <scoresList.Count)
             {
-
+                scoresList.RemoveAt(pos);
+                testScoresListBox.Items.Clear();
+                foreach(int value in scoresList)
+                {
+                    testScoresListBox.Items.Add(value);
+                }
             }
         }
     }
